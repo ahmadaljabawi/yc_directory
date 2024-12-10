@@ -5,6 +5,7 @@ import { auth, signIn, signOut } from '@/auth'
 
 const Navbar = async () => {
     const session = await auth();
+    console.log("Hi")
   return (
     <header className='px-5 py-3 bg-white shadow-sm font-work-sans'>
         <nav className='flex justify-between items-center'>
@@ -36,7 +37,8 @@ const Navbar = async () => {
                     <form
                         action={async () => {
                         "use server"
-                        await signIn('github');
+                        const signInData = await signIn('github');
+                        console.log("Hi",signInData);
                     }}>
                         <button type='submit'>Login</button>
                     </form>
